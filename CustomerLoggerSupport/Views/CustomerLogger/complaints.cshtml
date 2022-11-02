@@ -1,0 +1,98 @@
+﻿@model CustomerLoggerSupport.Models.Customerlogs
+@{
+    ViewBag.Title = "Complaints";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Complaints</h2>
+@using (Html.BeginForm("Complaints", "CustomerLogger", FormMethod.Post))
+{
+
+    
+        <fieldset>
+            <legend>Add Customer Complaints</legend>
+
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            if (@ViewBag.Message != null)
+            {
+            <div class="alert-success" style="border: 2px solid green">
+                @ViewBag.Message
+            </div>
+            }
+            <table>
+                <tr>
+                    <td>@Html.LabelFor(a => a.userid)</td>
+                    <td>@Html.TextBox("userid")</td>
+                    <td>@Html.ValidationMessageFor(a => a.userid)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(a => a.logid)</td>
+                    <td>@Html.TextBoxFor(a => a.logid)</td>
+                    <td>@Html.ValidationMessageFor(a => a.logid)</td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(a => a.custemail)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(a => a.custemail)
+                    </td>
+                    <td>
+                        @Html.ValidationMessageFor(a => a.custemail)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(a => a.custname)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(a => a.custname)
+                    </td>
+                    <td>
+                        @Html.ValidationMessageFor(a => a.custname)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(a => a.logstatus)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(a => a.logstatus)
+                    </td>
+                    <td>
+                        @Html.ValidationMessageFor(a => a.logstatus)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(a => a.desc)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(a => a.desc)
+                    </td>
+                    <td>
+                        @Html.ValidationMessageFor(a => a.desc)
+                    </td>
+                </tr>
+
+
+
+                <tr>
+                </tr>
+                <tr>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="Save" />
+                    </td>
+                    <td>
+                        <input type="reset" value="clear" />
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+        </fieldset>
+    }
+
