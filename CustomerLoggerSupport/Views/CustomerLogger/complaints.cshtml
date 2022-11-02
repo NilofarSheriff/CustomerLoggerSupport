@@ -14,7 +14,7 @@
 
             @Html.AntiForgeryToken()
             @Html.ValidationSummary(true)
-            if (@ViewBag.Message != null)
+            @if (@ViewBag.Message != null)
             {
             <div class="alert-success" style="border: 2px solid green">
                 @ViewBag.Message

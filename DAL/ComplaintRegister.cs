@@ -24,5 +24,18 @@ namespace DAL
             }
             
         }
+        public bool showcustomerlog()
+        {
+            CustomerLoggerEntities context = new CustomerLoggerEntities();
+            List<CustLogInfo> logs = context.CustLogInfoes.ToList();
+            if(logs.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

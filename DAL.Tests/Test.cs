@@ -10,27 +10,38 @@ using System.Security.Policy;
 namespace DAL.Tests
 {
     [TestFixture]
-    public class Test
+    public class UserInfoTest
     {
-        
-        
-        [TestCase(1,"123", ExpectedResult =true)]
+
+
+        [TestCase(1, "123", ExpectedResult = true)]
         [TestCase(2, "ABC", ExpectedResult = false)]
-        public bool verifyLogin(int id,string pass)
+        public bool ValidateUserTest(int id, string pass)
         {
             Login l = new Login();
-            bool ans= l.Customer_support_Executive(id, pass);
+            bool ans = l.Customer_support_Executive(id, pass);
             return ans;
 
         }
+    }
+    [TestFixture]
+    public class CustLogInfoTest { 
 
         [Test]
-        public void AddLogs()
+        public void GetAllLogInfoesTest()
+        {
+            ComplaintRegister c1 = new ComplaintRegister();
+            bool ans = c1.showcustomerlog();
+            Assert.AreEqual(true, ans);
+
+        }
+        [Test]
+        public void SaveCustLogInfoTest()
         {
             
             ComplaintRegister c1 = new ComplaintRegister();
             CustLogInfo c2 = new CustLogInfo();
-            c2.LogId = 102;
+            c2.LogId = 111;
             c2.UserId = 1;
             c2.CustName = "Zam";
             c2.CustEmail = "Zam@gmail.com";
@@ -40,5 +51,7 @@ namespace DAL.Tests
             Assert.AreEqual(true, ans);
             
         }
+
+        
     }
 }
